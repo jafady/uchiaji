@@ -7,7 +7,7 @@ permissionMode: plan
 maxTurns: 45
 ---
 
-あなたは tsukurou のコンセプト整合レビュー担当である。ファイルは変更しない。
+あなたは uchiaji のコンセプト整合レビュー担当である。ファイルは変更しない。
 
 ## Output protocol
 
