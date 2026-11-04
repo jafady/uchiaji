@@ -2,9 +2,9 @@
 
 ## Project overview
 
-uchiaji（うちあじ）は、「いつのまにか、うちの味になる。急かさない。決めつけない。でも、ちゃんと覚えている。」を掲げる、家族の料理のアプリである。出会った「やってみたい」を取っておき、食卓のひとことを次の「うちの分量」にする。名前は 2026-11-04 に tsukurou から付け直した。リポジトリの名前は、公開リポジトリとして作り直すときに変える。
+uchiaji（うちあじ）は、「いつのまにか、うちの味になる。急かさない。決めつけない。でも、ちゃんと覚えている。」を掲げる、家族の料理のアプリである。出会った「やってみたい」を取っておき、食卓のひとことを次の「うちの分量」にする。名前は 2026-11-04 に tsukurou から付け直した。リポジトリも同じ日に、公開リポジトリ uchiaji として作り直した。
 
-現在の段階：**コンセプトと調査が済み、要件定義に進むところ**。まだ実装コードはない。
+現在の段階：**コンセプトと調査が済み、要件定義に進むところ**。まだ実装コードはない。段階と進め方は `docs/dev/roadmap.md` にある。
 
 - `README.md`：ひとことコンセプトと目次
 - `docs/concept.md`：体験の軸、困りごと、使う場面、柱、機能の領域、位置づけ
@@ -12,6 +12,8 @@ uchiaji（うちあじ）は、「いつのまにか、うちの味になる。�
 - `docs/research/`：調査（事実の記録）。カテゴリ別のファイル
 - `docs/requirements/lessons.md`：調査からの示唆（L-番号）
 - `docs/requirements/backlog.md`：要件候補（F-番号、N-番号）
+- `docs/dev/roadmap.md`：開発の段階と、段階ごとに決めたこと
+- `docs/dev/autonomous-development.md`：自律開発の規約（プロダクトに依存しない）
 
 コンセプト作成時のメモ、揉み直したときの詳しい経緯（候補、ユーザーの反応、採らなかった理由）、非公開の情報は、アイデアを育てた非公開のリポジトリに置く。このリポジトリには、決まった結果と要点だけを書く。非公開のリポジトリの名前・パス・ファイル構成も書かず、リンクも張らない。場所は `CLAUDE.local.md`（gitignore 済み）にある。
 
@@ -59,13 +61,15 @@ uchiaji（うちあじ）は、「いつのまにか、うちの味になる。�
 
 ## Branch operations
 
-作業ブランチは **upstream を張らずに** 作る。
+作業ブランチは **develop から、upstream を張らずに** 作る。PR のベースも develop にする。main へは、develop からの PR だけで取り込む（`docs/dev/autonomous-development.md` の「ブランチと取り込み」）。
 
 ```bash
-git switch -c <prefix>/<内容> origin/main --no-track
+git switch -c <prefix>/<内容> origin/develop --no-track
 ```
 
+- マージの方法は merge commit だけ。マージした作業ブランチは GitHub が自動で消す。develop と main は、ルールセットで削除と force push を禁止している。
 - prefix の例：`docs/<内容>`、`feature/<内容>`、`fix/<内容>`、`chore/<内容>`
+- Issue があるときは `<prefix>/<Issue番号>-<内容>` にする。
 - 作成後に `git branch -vv` で upstream が付いていないことを確認する。初回の push は `git push -u origin <ブランチ名>`。
 - このリポジトリは jafady アカウントのもの。push の前に `gh auth status` で、アクティブなアカウントが jafady であることを確認する。
 

@@ -1,6 +1,6 @@
 # 調査
 
-tsukurou のコンセプトと要件の根拠になる事実を、カテゴリ別に置く。ここから導いた示唆は [requirements/lessons.md](../requirements/lessons.md) にまとめる。
+uchiaji のコンセプトと要件の根拠になる事実を、カテゴリ別に置く。ここから導いた示唆は [requirements/lessons.md](../requirements/lessons.md) にまとめる。
 
 ## カテゴリ
 
